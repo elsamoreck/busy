@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>She Said She's Too Busy... Then Made Time For Him</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background: #0f0f0f;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 25%, #404040 50%, #2d2d2d 75%, #1a1a1a 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 0, 0, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(0, 0, 0, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .clock-icon {
+            position: absolute;
+            font-size: 2.5rem;
+            opacity: 0;
+            animation: float-clock 15s ease-in-out infinite;
+            color: rgba(255, 255, 255, 0.08);
+        }
+        
+        .clock-icon:nth-child(1) { 
+            top: 20%; 
+            left: 10%; 
+            animation-delay: 0s; 
+        }
+        .clock-icon:nth-child(2) { 
+            top: 60%; 
+            right: 15%; 
+            animation-delay: 5s; 
+        }
+        .clock-icon:nth-child(3) { 
+            bottom: 30%; 
+            left: 20%; 
+            animation-delay: 10s; 
+        }
+        
+        @keyframes float-clock {
+            0%, 90%, 100% { 
+                opacity: 0; 
+                transform: translateY(30px) rotate(0deg); 
+            }
+            10%, 80% { 
+                opacity: 0.08; 
+                transform: translateY(0) rotate(15deg); 
+            }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-content {
+            text-align: center;
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            color: white;
+        }
+        
+        .hero .highlight {
+            color: #dc2626;
+            text-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+        }
+        
+        .hook {
+            font-size: 1.8rem;
+            color: #d1d5db;
+            margin-bottom: 40px;
+            font-weight: 600;
+            font-style: italic;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .subheading {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 50px;
+            font-weight: 400;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .truth-revealer {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #4b5563;
+            padding: 40px;
+            border-radius: 20px;
+            margin: 50px auto;
+            max-width: 900px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        
+        .truth-revealer h3 {
+            color: #f3f4f6;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            text-align: center;
+            text-shadow: 0 0 15px rgba(243, 244, 246, 0.2);
+        }
+        
+        .scenario-section {
+            background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+            margin-top: 0;
+        }
+        
+        .phone-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+            justify-items: center;
+        }
+        
+        .phone-mockup {
+            background: #1f2937;
+            border-radius: 25px;
+            padding: 20px;
+            border: 3px solid #374151;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
+            max-width: 380px;
+            width: 100%;
+        }
+        
+        .phone-screen {
+            background: #111827;
+            border-radius: 20px;
+            padding: 15px;
+            min-height: 450px;
+            position: relative;
+        }
+        
+        .phone-header {
+            background: #1f2937;
+            padding: 12px 15px;
+            border-radius: 12px 12px 0 0;
+            border-bottom: 1px solid #374151;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .contact-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        
+        .contact-name {
+            color: #f3f4f6;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+        }
+        
+        .message.sent {
+            flex-direction: row-reverse;
+        }
+        
+        .message-bubble {
+            max-width: 75%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            position: relative;
+            animation: messageSlide 0.3s ease-out;
+        }
+        
+        @keyframes messageSlide {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .message.received .message-bubble {
+            background: #374151;
+            color: #f3f4f6;
+            border-bottom-left-radius: 4px;
+        }
+        
+        .message.sent .message-bubble {
+            background: #dc2626;
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+        
+        .message-time {
+            font-size: 0.7rem;
+            color: #6b7280;
+            align-self: flex-end;
+            margin-bottom: 2px;
+        }
+        
+        .read-receipt {
+            font-size: 0.7rem;
+            color: #6b7280;
+            text-align: right;
+            margin-top: 5px;
+        }
+        
+        .story-update {
+            margin-top: 20px;
+            padding: 12px;
+            background: rgba(75, 85, 99, 0.3);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: #9ca3af;
+            border: 1px solid #4b5563;
+        }
+        
+        .truth-list {
+            list-style: none;
+            color: white;
+        }
+        
+        .truth-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(31, 41, 55, 0.6);
+            border-radius: 10px;
+            border-left: 4px solid #dc2626;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .truth-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(75, 85, 99, 0.2), transparent);
+            animation: truth-reveal 3s ease-in-out infinite;
+        }
+        
+        @keyframes truth-reveal {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .truth-item .truth-title {
+            color: #f9fafb;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .truth-item .truth-detail {
+            color: #d1d5db;
+        }
+        
+        .reality-highlight {
+            background: rgba(31, 41, 55, 0.8);
+            border: 2px solid #dc2626;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 60px 0;
+            text-align: center;
+        }
+        
+        .reality-highlight h4 {
+            color: #dc2626;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(220, 38, 38, 0.3);
+        }
+        
+        .reality-highlight p {
+            font-size: 1.4rem;
+            color: #f3f4f6;
+            font-weight: 500;
+        }
+        
+        .solution-section {
+            background: linear-gradient(135deg, #111827 0%, #000000 100%);
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .solution-section h2 {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            font-weight: 900;
+            color: #f9fafb;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .solution-text {
+            font-size: 1.5rem;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #d1d5db;
+        }
+        
+        .urgency-banner {
+            background: linear-gradient(90deg, #dc2626, #991b1b);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            animation: urgency-pulse 3s ease-in-out infinite;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        @keyframes urgency-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .scarcity-timer {
+            background: rgba(31, 41, 55, 0.6);
+            border: 2px solid #dc2626;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 50px auto;
+            max-width: 700px;
+        }
+        
+        .timer-text {
+            font-size: 1.8rem;
+            color: #dc2626;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 25px;
+        }
+        
+        .time-unit {
+            text-align: center;
+        }
+        
+        .time-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: white;
+            display: block;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .time-label {
+            font-size: 1rem;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .value-stack {
+            background: rgba(31, 41, 55, 0.7);
+            border: 2px solid #4b5563;
+            padding: 50px;
+            border-radius: 20px;
+            margin: 60px 0;
+            backdrop-filter: blur(5px);
+        }
+        
+        .value-stack h3 {
+            color: #f9fafb;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            text-shadow: 0 0 15px rgba(249, 250, 251, 0.2);
+        }
+        
+        .value-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(55, 65, 81, 0.5);
+            border-radius: 12px;
+            border: 1px solid #6b7280;
+        }
+        
+        .value-icon {
+            font-size: 2.2rem;
+            margin-right: 25px;
+            color: #dc2626;
+        }
+        
+        .value-text {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        
+        .value-text strong {
+            color: #f3f4f6;
+            font-size: 1.3rem;
+        }
+        
+        .price-section {
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        .original-price {
+            font-size: 2.2rem;
+            color: #9ca3af;
+            text-decoration: line-through;
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+        
+        .sale-price {
+            font-size: 4.5rem;
+            color: #dc2626;
+            font-weight: 900;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .price-note {
+            color: #d1d5db;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(145deg, #dc2626, #991b1b);
+            color: white;
+            padding: 30px 70px;
+            font-size: 2rem;
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            box-shadow: 0 20px 60px rgba(220, 38, 38, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 30px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 30px 80px rgba(220, 38, 38, 0.5);
+        }
+        
+        .guarantee-section {
+            background: rgba(31, 41, 55, 0.6);
+            border: 2px solid #4b5563;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 50px 0;
+            text-align: center;
+        }
+        
+        .guarantee-section h4 {
+            color: #f3f4f6;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .guarantee-section p {
+            color: #d1d5db;
+            font-size: 1.2rem;
+        }
+        
+        .social-proof {
+            background: rgba(17, 24, 39, 0.8);
+            padding: 60px;
+            border-radius: 15px;
+            margin: 60px 0;
+        }
+        
+        .testimonial {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(31, 41, 55, 0.6);
+            border-radius: 12px;
+            border-left: 4px solid #dc2626;
+        }
+        
+        .testimonial-text {
+            color: #f3f4f6;
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            line-height: 1.6;
+        }
+        
+        .testimonial-author {
+            color: #9ca3af;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .bonus-section {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .bonus-section h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #f9fafb;
+        }
+        
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .bonus-card {
+            background: rgba(31, 41, 55, 0.7);
+            border: 2px solid #4b5563;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: left;
+        }
+        
+        .bonus-card h4 {
+            color: #dc2626;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        
+        .bonus-card p {
+            color: #d1d5db;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        
+        .final-urgency {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .final-urgency h2 {
+            font-size: 3.2rem;
+            margin-bottom: 30px;
+            color: #f9fafb;
+        }
+        
+        .final-urgency-text {
+            font-size: 1.4rem;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #d1d5db;
+        }
+        
+        .purchase-notification {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(31, 41, 55, 0.95);
+            border: 2px solid #dc2626;
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: white;
+            font-size: 0.85rem;
+            max-width: 280px;
+            z-index: 1000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+        
+        .purchase-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .purchase-notification .notification-icon {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #dc2626;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: notification-pulse 2s infinite;
+        }
+        
+        @keyframes notification-pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.2); }
+        }
+        
+        .purchase-notification .buyer-info {
+            font-weight: 600;
+            color: #f3f4f6;
+            margin-bottom: 2px;
+        }
+        
+        .purchase-notification .purchase-details {
+            color: #9ca3af;
+            font-size: 0.8rem;
+        }
+        
+        .limited-spots {
+            background: rgba(220, 38, 38, 0.2);
+            border: 2px solid #dc2626;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .limited-spots h4 {
+            color: #dc2626;
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hook {
+                font-size: 1.4rem;
+            }
+            
+            .subheading {
+                font-size: 1.2rem;
+            }
+            
+            .truth-revealer {
+                padding: 30px 20px;
+                margin: 30px 15px;
+            }
+            
+            .phone-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .phone-mockup {
+                max-width: 350px;
+            }
+            
+            .phone-screen {
+                padding: 12px;
+                min-height: 400px;
+            }
+            
+            .message-bubble {
+                font-size: 0.8rem;
+                padding: 10px 12px;
+            }
+            
+            .countdown {
+                gap: 20px;
+            }
+            
+            .time-number {
+                font-size: 2.5rem;
+            }
+            
+            .cta-button {
+                padding: 20px 40px;
+                font-size: 1.4rem;
+                margin: 15px 10px;
+            }
+            
+            .purchase-notification {
+                bottom: 10px;
+                left: 10px;
+                right: 10px;
+                max-width: none;
+            }
+            
+            .solution-section h2 {
+                font-size: 3rem;
+            }
+            
+            .value-stack {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="urgency-banner">
+        Final Hours: "Become Her Priority" System At 85% Discount - Only 17 Copies Left At This Price
+    </div>
+    
+    <section class="hero">
+        <div class="floating-elements">
+            <div class="clock-icon">⏰</div>
+            <div class="clock-icon">⏰</div>
+            <div class="clock-icon">⏰</div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <h1>She Said She's <span class="highlight">Too Busy</span>... Then Made Time For Him</h1>
+                <p class="hook">"She said she was too busy to date…but here's what really happened."</p>
+                <p class="subheading">Why "I'm swamped this week" really means "You're not the priority" and how to change that immediately</p>
+                
+                <div class="truth-revealer">
+                    <h3>The 7 Brutal Truths About Her "Busy Schedule"</h3>
+                    <ul class="truth-list">
+                        <li class="truth-item">
+                            <div class="truth-title">She has time for what matters to her</div>
+                            <div class="truth-detail">Netflix binges, girls' nights, gym sessions all somehow fit her schedule perfectly</div>
+                        </li>
+                        <li class="truth-item">
+                            <div class="truth-title">"Busy" is code for "not interested"</div>
+                            <div class="truth-detail">It's the polite way to reject you without hurting your feelings or causing confrontation</div>
+                        </li>
+                        <li class="truth-item">
+                            <div class="truth-title">She's managing multiple guys</div>
+                            <div class="truth-detail">While telling you she's swamped, she's actively texting three other options</div>
+                        </li>
+                        <li class="truth-item">
+                            <div class="truth-title">Her phone is always in her hand</div>
+                            <div class="truth-detail">Too busy to text back but not too busy for Instagram stories and TikTok scrolling?</div>
+                        </li>
+                        <li class="truth-item">
+                            <div class="truth-title">The right guy gets instant responses</div>
+                            <div class="truth-detail">Suddenly her "crazy schedule" has openings at 2 AM when he texts</div>
+                        </li>
+                        <li class="truth-item">
+                            <div class="truth-title">She's buying time to see what else comes along</div>
+                            <div class="truth-detail">You're the backup plan while she shops around for better options</div>
+                        </li>
+                        <li class="truth-item">
+                            <div class="truth-title">Actions reveal true priorities</div>
+                            <div class="truth-detail">Watch what she makes time for - that's what actually matters to her</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="scenario-section">
+        <div class="container">
+            <h2 style="font-size: 3.2rem; margin-bottom: 30px; color: #f9fafb;">The Reality Check</h2>
+            <p style="font-size: 1.4rem; color: #d1d5db; margin-bottom: 50px; max-width: 700px; margin-left: auto; margin-right: auto;">See what "too busy" really looks like in her daily life</p>
+            
+            <div class="phone-container">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="phone-header">
+                            <div class="contact-avatar">Y</div>
+                            <div class="contact-name">You</div>
+                        </div>
+                        
+                        <div class="message sent">
+                            <div class="message-bubble">Want to grab dinner Friday?</div>
+                            <div class="message-time">3:24 PM</div>
+                        </div>
+                        
+                        <div class="message sent">
+                            <div class="message-bubble">There's this new Italian place downtown</div>
+                            <div class="message-time">3:25 PM</div>
+                        </div>
+                        
+                        <div class="message received">
+                            <div class="message-bubble">Oh I'm super busy this week! Work is crazy right now 😅</div>
+                            <div class="message-time">11:47 PM</div>
+                        </div>
+                        
+                        <div class="message sent">
+                            <div class="message-bubble">No worries! Maybe next week?</div>
+                            <div class="message-time">11:49 PM</div>
+                        </div>
+                        
+                        <div class="message received">
+                            <div class="message-bubble">Yeah maybe! Let me see how things go</div>
+                            <div class="message-time">11:52 PM</div>
+                        </div>
+                        
+                        <div class="read-receipt">Read</div>
+                    </div>
+                </div>
+                
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="phone-header">
+                            <div class="contact-avatar">C</div>
+                            <div class="contact-name">Chad 🔥</div>
+                        </div>
+                        
+                        <div class="message received">
+                            <div class="message-bubble">Come over. Now.</div>
+                            <div class="message-time">11:53 PM</div>
+                        </div>
+                        
+                        <div class="message sent">
+                            <div class="message-bubble">Omw 😈</div>
+                            <div class="message-time">11:53 PM</div>
+                        </div>
+                        
+                        <div class="message received">
+                            <div class="message-bubble">Good girl</div>
+                            <div class="message-time">11:54 PM</div>
+                        </div>
+                        
+                        <div class="story-update">
+                            📱 Instagram Story: "Can't sleep 😴" - Posted 11:55 PM<br>
+                            📱 Snapchat: Active 2 minutes ago<br>
+                            📱 TikTok: Liked 12 videos in last hour
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="reality-highlight">
+                <h4>Busy People Make Time. Uninterested People Make Excuses.</h4>
+                <p>Learn how to become the man women drop everything for</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="solution-section">
+        <div class="container">
+            <h2>Become Her #1 Priority</h2>
+            <p class="solution-text">The complete system to transform from "backup plan" to "drop everything" status in her mind.</p>
+            
+            <div class="scarcity-timer">
+                <div class="timer-text">EMERGENCY SALE ENDS IN:</div>
+                <div class="countdown">
+                    <div class="time-unit">
+                        <span class="time-number" id="hours">18</span>
+                        <span class="time-label">Hours</span>
+                    </div>
+                    <div class="time-unit">
+                        <span class="time-number" id="minutes">23</span>
+                        <span class="time-label">Minutes</span>
+                    </div>
+                    <div class="time-unit">
+                        <span class="time-number" id="seconds">41</span>
+                        <span class="time-label">Seconds</span>
+                    </div>
+                </div>
+                <p style="color: #dc2626; font-weight: 700; font-size: 1.2rem;">After timer expires: Price returns to $127 FOREVER</p>
+            </div>
+            
+            <div class="limited-spots">
+                <h4>🔥 FINAL <span id="spotsRemaining">17</span> COPIES LEFT</h4>
+                <p style="color: #f3f4f6; font-size: 1.1rem;">at this emergency discount</p>
+            </div>
+            
+            <div class="value-stack">
+                <h3>"Become Her Priority" Complete System</h3>
+                
+                <div class="value-item">
+                    <div class="value-icon">🎯</div>
+                    <div class="value-text">
+                        <strong>"Priority Psychology" Masterclass</strong><br>
+                        Understanding the female mind: Why she makes time for some men instantly ($77 Value)
+                    </div>
+                </div>
+                
+                <div class="value-item">
+                    <div class="value-icon">⚡</div>
+                    <div class="value-text">
+                        <strong>"High-Value Positioning" Blueprint</strong><br>
+                        How to position yourself as the rare option she can't ignore or replace ($67 Value)
+                    </div>
+                </div>
+                
+                <div class="value-item">
+                    <div class="value-icon">🔥</div>
+                    <div class="value-text">
+                        <strong>"Scarcity & Demand" Framework</strong><br>
+                        Create urgency in her mind - make her afraid of losing you to other women ($57 Value)
+                    </div>
+                </div>
+                
+                <div class="value-item">
+                    <div class="value-icon">💎</div>
+                    <div class="value-text">
+                        <strong>"Irresistible Energy" Transformation</strong><br>
+                        Develop the magnetic presence that makes women clear their schedules ($87 Value)
+                    </div>
+                </div>
+                
+                <div class="value-item">
+                    <div class="value-icon">🚀</div>
+                    <div class="value-text">
+                        <strong>BONUS: "Emergency Recovery" Protocols</strong><br>
+                        What to do when she's already using the "busy" excuse - turn it around fast ($47 Value)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="price-section">
+                <div class="original-price">Total Value: $335</div>
+                <div class="sale-price">$19</div>
+                <div class="price-note">Save $316 - Final 18 Hours Only</div>
+            </div>
+            
+            <a href="https://buy.stripe.com/bJe9AM6Y62eC72agbs6Vq0o" class="cta-button" target="_blank">BECOME HER PRIORITY NOW - $19</a>
+            
+            <div class="guarantee-section">
+                <h4>⚡ INSTANT ACCESS + PRIORITY GUARANTEE</h4>
+                <p>Download immediately after purchase. If you don't notice women making more time for you within 14 days, get every cent back - no questions asked.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="social-proof">
+        <div class="container">
+            <div class="testimonial">
+                <div class="testimonial-text">"She went from 'I'm so busy' to 'when can I see you again?' in the same week. This system completely flipped the script. Now I'm the one she's chasing, not the other way around."</div>
+                <div class="testimonial-author">- Marcus T., 29</div>
+            </div>
+            
+            <div class="testimonial">
+                <div class="testimonial-text">"Used to get the 'busy' excuse constantly. After applying this, women started canceling other plans to spend time with me. The priority psychology section alone was worth 10x the price."</div>
+                <div class="testimonial-author">- Derek L., 26</div>
+            </div>
+            
+            <div class="testimonial">
+                <div class="testimonial-text">"Three different women told me they were 'too swamped to date' last month. Applied these principles and now all three are asking ME when I'm free. The power shift is incredible."</div>
+                <div class="testimonial-author">- Tony R., 32</div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="bonus-section">
+        <div class="container">
+            <h2>🎁 Exclusive Bonuses (Limited Time Only)</h2>
+            
+            <div class="bonus-grid">
+                <div class="bonus-card">
+                    <h4>🔄 "Reverse Psychology" Playbook</h4>
+                    <p>Advanced tactics to make her chase YOU when she's playing hard to get. Turn the tables completely.</p>
+                </div>
+                
+                <div class="bonus-card">
+                    <h4>📱 "Text Templates That Work"</h4>
+                    <p>Word-for-word messages that create instant curiosity and make her want to see you immediately.</p>
+                </div>
+                
+                <div class="bonus-card">
+                    <h4>🎯 "Social Media Mastery"</h4>
+                    <p>How to use Instagram and social platforms to demonstrate your high-value lifestyle subtly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="final-urgency">
+        <div class="container">
+            <h2>🚨 Final Warning: Don't Stay Her Backup Plan</h2>
+            <p class="final-urgency-text">Right now, she's making time for someone else. While you're accepting her "busy" excuses, another man is experiencing her enthusiastic availability. The choice is yours: stay in the friend zone or become her priority.</p>
+            
+            <div class="limited-spots">
+                <h4>⏰ LAST CHANCE: <span id="finalSpots">17</span> COPIES LEFT</h4>
+                <p style="color: #dc2626; font-weight: 600; font-size: 1.1rem;">This 85% discount expires when timer hits zero</p>
+            </div>
+            
+            <a href="https://buy.stripe.com/bJe9AM6Y62eC72agbs6Vq0o" class="cta-button" target="_blank">STOP BEING HER BACKUP - $19</a>
+            
+            <div style="background: rgba(220, 38, 38, 0.1); border: 2px solid #dc2626; padding: 30px; border-radius: 15px; margin: 40px 0;">
+                <h3 style="color: #dc2626; font-size: 1.8rem; margin-bottom: 15px;">Why This Works So Well:</h3>
+                <ul style="color: #f3f4f6; font-size: 1.2rem; list-style: none; text-align: left;">
+                    <li style="margin-bottom: 10px;">✅ Based on real female psychology, not pickup artist BS</li>
+                    <li style="margin-bottom: 10px;">✅ Tested on thousands of interactions with real results</li>
+                    <li style="margin-bottom: 10px;">✅ Works for any age, any background, any situation</li>
+                    <li style="margin-bottom: 10px;">✅ Changes happen within days, not months</li>
+                </ul>
+            </div>
+            
+            <p style="margin-top: 30px; color: #dc2626; font-size: 1.3rem; font-weight: 700;">⚠️ FINAL HOURS: Sale ends in <span id="final-hours" style="font-weight: bold;">18 hours</span></p>
+            
+            <div style="margin-top: 40px; padding: 25px; background: rgba(31, 41, 55, 0.8); border-radius: 10px; border-left: 4px solid #dc2626;">
+                <p style="color: #f3f4f6; font-size: 1.2rem; font-style: italic; margin-bottom: 15px;">"The moment you understand why she makes time for some guys and not others, everything changes. You'll never be her backup plan again."</p>
+                <p style="color: #9ca3af; font-weight: 600;">- The Priority Psychology System</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Purchase Notification Popup -->
+    <div class="purchase-notification" id="purchaseNotification">
+        <div>
+            <span class="notification-icon"></span>
+            <span class="buyer-info" id="buyerInfo">Kevin from Miami just purchased</span>
+        </div>
+        <div class="purchase-details" id="purchaseTime">2 minutes ago</div>
+    </div>
+    
+    <script>
+        // Countdown timer
+        function updateCountdown() {
+            const hours = document.getElementById('hours');
+            const minutes = document.getElementById('minutes');
+            const seconds = document.getElementById('seconds');
+            const finalHours = document.getElementById('final-hours');
+            
+            let totalSeconds = 18 * 3600 + 23 * 60 + 41;
+            
+            setInterval(() => {
+                totalSeconds--;
+                
+                const h = Math.floor(totalSeconds / 3600);
+                const m = Math.floor((totalSeconds % 3600) / 60);
+                const s = totalSeconds % 60;
+                
+                if (hours) hours.textContent = h.toString().padStart(2, '0');
+                if (minutes) minutes.textContent = m.toString().padStart(2, '0');
+                if (seconds) seconds.textContent = s.toString().padStart(2, '0');
+                if (finalHours) finalHours.textContent = h;
+                
+                if (totalSeconds <= 0) {
+                    totalSeconds = 18 * 3600 + 23 * 60 + 41; // Reset
+                }
+            }, 1000);
+        }
+        
+        // Purchase notifications data
+        const purchaseData = [
+            { name: "Kevin", city: "Miami" },
+            { name: "Brad", city: "Dallas" },
+            { name: "Chris", city: "Seattle" },
+            { name: "Matt", city: "Phoenix" },
+            { name: "Jake", city: "Austin" },
+            { name: "Ryan", city: "Denver" },
+            { name: "Tyler", city: "Nashville" },
+            { name: "Connor", city: "Vegas" },
+            { name: "Mason", city: "Tampa" },
+            { name: "Ethan", city: "Charlotte" },
+            { name: "Noah", city: "Orlando" },
+            { name: "Lucas", city: "Atlanta" },
+            { name: "James", city: "Houston" },
+            { name: "David", city: "San Diego" },
+            { name: "Michael", city: "Portland" }
+        ];
+        
+        let spotsRemaining = 17;
+        
+        function showPurchaseNotification() {
+            const notification = document.getElementById('purchaseNotification');
+            const buyerInfo = document.getElementById('buyerInfo');
+            const purchaseTime = document.getElementById('purchaseTime');
+            
+            const randomPurchase = purchaseData[Math.floor(Math.random() * purchaseData.length)];
+            const randomMinutes = Math.floor(Math.random() * 15) + 1;
+            
+            buyerInfo.textContent = `${randomPurchase.name} from ${randomPurchase.city} just purchased`;
+            purchaseTime.textContent = `${randomMinutes} minute${randomMinutes > 1 ? 's' : ''} ago`;
+            
+            notification.classList.add('show');
+            
+            // Update spots counter
+            if (spotsRemaining > 8) {
+                spotsRemaining--;
+                const spotsElements = document.querySelectorAll('#spotsRemaining, #finalSpots');
+                spotsElements.forEach(element => {
+                    if (element) element.textContent = spotsRemaining;
+                });
+            }
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 4500);
+        }
+        
+        // Button click tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCountdown();
+            
+            // Show first notification after 6 seconds
+            setTimeout(showPurchaseNotification, 6000);
+            
+            // Show subsequent notifications every 25-45 seconds
+            setInterval(() => {
+                const randomDelay = Math.random() * 20000 + 25000;
+                setTimeout(showPurchaseNotification, 0);
+            }, 35000);
+            
+            const buttons = document.querySelectorAll('.cta-button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    console.log('CTA button clicked - Become Her Priority System');
+                    
+                    // Add click tracking or analytics here if needed
+                    gtag && gtag('event', 'purchase_intent', {
+                        'event_category': 'engagement',
+                        'event_label': 'priority_system_cta'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
